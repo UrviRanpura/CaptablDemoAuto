@@ -13,6 +13,7 @@ protected WebDriver driver;
 protected SeleniumHelpers selenium;
 private DriverManager drivermanager;
 
+//Connect with GitHub
 
 @BeforeMethod
 @Parameters({"browser"})

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/UrviRanpura/IdeaProjects/GitHubDemo/src/test/java/Base/BaseTest.java"><classes><class name="Base.BaseTest"><methods><include name="Logintest"/><include name="RegistrationTest"/></methods></class></classes></test></suite>

@@ -13,7 +13,8 @@ public class LoginPo extends BasePo{
         super(driver);
     }
 
-    //WebDriver driver;
+    @FindBy(xpath = "//a[contains(text(),'Login')]")
+    WebElement LoginButton;
 
     @FindBy(xpath = "//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root mt-4 css-wa977u-MuiPaper-root-MuiCard-root']")
     WebElement AlertMessage;
@@ -29,6 +30,11 @@ public class LoginPo extends BasePo{
 
     @FindBy(xpath = "//div[@class='MuiBox-root css-j7qwjs']/child::div[2]")
     WebElement FieldRequiredAlert;
+
+    public void LoginButton()
+    {
+        LoginButton.click();
+    }
 
     public void Username(String UName)
     {

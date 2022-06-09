@@ -15,13 +15,13 @@ private DriverManager drivermanager;
 
 //Connect with GitHub
 
-@BeforeMethod
+@BeforeTest
 @Parameters({"browser"})
 public void setUp(@Optional("chrome") String browser) throws InterruptedException {
     drivermanager = new DriverManager();
     driver = drivermanager.setUp(browser);
     selenium = new SeleniumHelpers(driver);
-    driver.get("http://localhost:4200/login");
+    driver.get("https://dyt7guzap04ox.cloudfront.net/login");
     Thread.sleep(7000);
 }
 
@@ -29,6 +29,9 @@ public void setUp(@Optional("chrome") String browser) throws InterruptedExceptio
 public void Logintest() throws InterruptedException
 {
     LoginPo LPage = new LoginPo(driver);
+
+    LPage.LoginButton();
+    Thread.sleep(5000);
 
     //Password & UserName Incorrect Validation Test
     LPage.Username("8511339702");
@@ -89,10 +92,23 @@ public void Logintest() throws InterruptedException
     LPage.UsernameClear();
     LPage.Username("8511339701");
     LPage.PasswordClear();
-    LPage.Password("Test@1234");
+    LPage.Password("Test@123");
     Thread.sleep(5000);
     LPage.SignInButton();
-    Thread.sleep(10000);
+    Thread.sleep(20000);
+
+}
+
+@Test(priority = 3)
+public void DashboardTest() throws InterruptedException {
+
+    DashboardPo DPage = new DashboardPo(driver);
+
+    DPage.UserDropDown();
+    Thread.sleep(2000);
+    DPage.AccountDetailsButtonFromDropDown();
+    Thread.sleep(5000);
+
 }
 
 @Test(priority = 1)
@@ -119,7 +135,7 @@ public void RegistrationTest() throws InterruptedException
 
 }
 
-@AfterMethod
+@AfterTest
 public void tearDown(ITestResult result)
 {
     drivermanager.tearDown();
